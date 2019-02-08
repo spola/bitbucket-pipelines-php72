@@ -37,6 +37,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get autoclean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/lib/mysql/ib_logfile*
+    
+# Actualizar paquetes npm
+RUN npm install -g npm@latest
+# RUN mv node_modules/npm /usr/local/lib/node_modules/npm
+# RUN rm -rf /usr/local/lib/node_modules/npm
 
 # Ensure UTF-8
 ENV LANG       en_US.UTF-8
